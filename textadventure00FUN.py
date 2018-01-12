@@ -113,7 +113,7 @@ def owl_fly_airber():
 def owl_start():
 	begin = input("Yes or no?\n")
 	if begin.lower() in ('yes', 'y'):
-		print("You have fallen out of your tree in the Wild Woods of Woowoowoo. You need to get back before Walt steals your nest.")
+		print("You are lost in the Wild Woods of Woowoowoo. You need to get back to your home before darkness falls.")
 		owl_fly_airber()
 	elif begin.lower() in ('no' or 'n'):
 		start_again()
