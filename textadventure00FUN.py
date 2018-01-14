@@ -15,17 +15,25 @@ def start_again():
 		print("Goodbye")
 		quit()
 	elif start_yes_no.lower():
+		print('I do not understand what you want to do.')
 		start_again()
 
-# def continue_game():
-# 	continue_yes_no = input('Yes/no?')
-# 	if continue_yes_no.lower() in ('yes', 'y'):
-# 		walk_or_climb()
-# 	elif continue_yes_no.lower() in ('no' or 'n'):
-# 		print("Goodbye")
-# 		quit()
-# 	elif continue_yes_no.lower():
-# 		start_again()
+def stay_in_the_tree(stays):
+	print('Do you still want to stay in the tree?')
+	stay_yes_no = input('Yes/no?\n')
+	if stay_yes_no.lower() in ('yes', 'y'):
+		print('You are going to have to move sometime.')
+		print(stays)
+		if stays < 3:
+			stay_in_the_tree(stays + 1)
+		else:
+			print('You have run out of time. You will have to sleep out in the dark and hope the Flying Wolves don\'t get you!')
+	elif stay_yes_no.lower() in ('no' or 'n'):
+		print("Next")
+	elif stay_yes_no.lower():
+		print('I do not understand what you want to do.')
+		stay_in_the_tree(stays)
+
 
 # def owl_spend():
 # 	home_holiday = input('You have enough money to go home now. Would you like spend the money on an Airber or a trip to Blackpool?\n')
@@ -41,20 +49,6 @@ def start_again():
 # 	elif home_holiday.lower():
 # 		owl_spend()
 
-
-# def owl_job():
-# 	print("Would you like to get a job? Yes/no?\n")
-# 	job = input('Yes/no?')
-# 	if job.lower() in ('yes', 'y'):
-# 		print('Congratulations, you got a job as an ice cream taster.')
-# 		owl_spend()
-# 	elif job.lower() in ('no' or 'n'):
-# 		print('You treat your life as one long holiday and get suffocated by a sea cucumber.')
-# 		end()
-# 	elif job.lower():
-# 		owl_job()
-
-
 # def owl_healing():
 # 	banana = input('A banana appears. Should you ask it to heal you?\n')
 # 	if banana.lower() in ('yes', 'y'):
@@ -68,7 +62,7 @@ def start_again():
 # 		owl_healing()
 		
 # def owl_ask_gull():
-# 	print("Would you like to ask him to get the octopus?\n")
+# 	print('Would you like to ask him to get the octopus?\n')
 # 	ask_for_octopus = input('Yes/no?')
 # 	if ask_for_octopus.lower() in ('yes', 'y'):
 # 		owl_healing()
@@ -77,31 +71,37 @@ def start_again():
 # 		end()
 # 	elif ask_for_octopus.lower():
 # 		owl_ask_gull()
+print('You saw a large lake from up in the tree. Would you like to head for it or try to go around it?')
 
-# def owl_hide():
-# 	hide = input('Do you want to hide?\n')
-# 	if hide.lower() in ('yes', 'y'):
-# 		print('You stayed hidden for too long and died of starvation.')
-# 		end()
-# 	elif hide.lower() in ('no' or 'n'):
-# 		owl_ask_gull()
-# 	elif hide.lower():
-# 		owl_hide()
+pick_up():
+	print('You have found a magic stone!')
+	# These could be randomly selected colours and each one could do something different. Need to have a number to collect them.
 
+def inspect_object():
+	print('Would you like to go over to the object?\n')
+	walk_to_object = input('Yes/no?')
+	if walk_to_object.lower() in ('yes', 'y'):
+		pick_up()
+	elif walk_to_object.lower() in ('no' or 'n'):
+		print('Oh no! That was your only chance to get the octopus. You died of sunstroke.')
+	elif walk_to_object.lower():
+		# owl_ask_gull()
 
-# def owl_sea_gym():
-# 	sea_gym = input("Would you like to get some fresh air at the seaside or work your wing at the gym?\n")
-# 	sea = "sea"
-# 	gym = "gym"
-# 	activity_words = sea_gym.lower()
-# 	if sea in activity_words:
-# 		print('You see a gull. It is Perdue!')
-# 		owl_hide()
-# 	elif gym in activity_words:
-# 		print('Someone is not paying attention to their body. Leg work is not going to help you back up that tree. You die of exhaustion.')
-# 		end()
-# 	elif sea_gym.lower():
-# 		owl_sea_gym()
+def tree_view():
+	down_stay = input('You can see your home over in the distance and the nice, safe, winding path you took to get you here ' +
+		'but you will never get back if go the long way round. You are going to have to go through the deep forest past ' +
+		'many obstacles to get back. Type 1 to climb down or 2 to stay in the tree.\n')
+	climb_down = "1"
+	stay = "2"
+	activity_words = down_stay.lower()
+	if climb_down in activity_words:
+		print('When you get down from the tree you see a something shiny a few metres away.')
+		inspect_object()
+	elif stay in activity_words:
+		print('If you stay in the tree too long you will never get home!')
+		stay_in_the_tree(1)
+	elif down_stay.lower():
+		tree_view()
 
 # jen='''
 
@@ -120,12 +120,12 @@ def walk_or_climb():
 	travel_words = climb_walk.lower()
 	if climb in travel_words:
 		print("Excellent work. You have a much better view from up here.")
-		# owl_sea_gym()
+		tree_view()
 	elif walk in travel_words:
 		print("You come across a clearing and in the distance you see a pair of dogs.")
-		owl_job()
+		# owl_job()
 	elif travel_words.lower():
-		# walk_or_climb()
+		walk_or_climb()
 
 
 def lost_woods():
@@ -144,18 +144,15 @@ def start():
 	name = input("Welcome to your adventure. Please tell me your name.")
 	character_generated = random.choice(character)
 	if character_generated == 'Outrageous Owl':
-		indefiniteArticle = "an"
+		indefinite_article = "an"
 	else:
-		indefiniteArticle = "a"
-	print('\nWelcome ' + name + '. You are ' + indefiniteArticle + " " + character_generated + '.\nDo you wish to continue?')
+		indefinite_article = "a"
+	print('\nWelcome ' + name + '. You are ' + indefinite_article + " " + character_generated + '.\nDo you wish to continue?')
 	lost_woods()
 
 
-start()
-
-
-
-
+if __name__ == "__main__":
+    start()
 
 
 #
