@@ -1,5 +1,6 @@
 import random
 character = ['Wizzeling Wizard', 'Catastrophic Cat', 'Bobbeling Flightless Bumble Bee', 'Outrageous Ground Owl']
+stone = {'blue': 'freeze time for 1 hour' , 'red': '1 life', 'pink': 'food', 'green': 'speak to the trees'}
 
 def end():
 	print('THE END')
@@ -7,8 +8,7 @@ def end():
 
 
 def start_again():
-	print("Would you like to start again?\n")
-	start_yes_no = input('Yes/no?\n')
+	start_yes_no = input('Would you like to start again?\nYes/no?\n')
 	if start_yes_no.lower() in ('yes', 'y'):
 		start()
 	elif start_yes_no.lower() in ('no' or 'n'):
@@ -19,8 +19,7 @@ def start_again():
 		start_again()
 
 def stay_in_the_tree(stays):
-	print('Do you still want to stay in the tree?')
-	stay_yes_no = input('Yes/no?\n')
+	stay_yes_no = input('Do you still want to stay in the tree?\nYes/no?\n')
 	if stay_yes_no.lower() in ('yes', 'y'):
 		print('You are going to have to move sometime.')
 		print(stays)
@@ -29,7 +28,7 @@ def stay_in_the_tree(stays):
 		else:
 			print('You have run out of time. You will have to sleep out in the dark and hope the Flying Wolves don\'t get you!')
 	elif stay_yes_no.lower() in ('no' or 'n'):
-		print("Next")
+		inspect_object()
 	elif stay_yes_no.lower():
 		print('I do not understand what you want to do.')
 		stay_in_the_tree(stays)
@@ -71,20 +70,22 @@ def stay_in_the_tree(stays):
 # 		end()
 # 	elif ask_for_octopus.lower():
 # 		owl_ask_gull()
-print('You saw a large lake from up in the tree. Would you like to head for it or try to go around it?')
+# print('You saw a large lake from up in the tree. Would you like to head for it or try to go around it?')
 
-pick_up():
-	print('You have found a magic stone!')
+def pick_up():
+	stone_found = random.choice(list(stone.keys()))
+	stone_action = stone.get(stone_found)
+	print('You have found a ' + stone_found + ' magic stone! This stone gives you ' + stone_action + '.')
 	# These could be randomly selected colours and each one could do something different. Need to have a number to collect them.
 
 def inspect_object():
-	print('Would you like to go over to the object?\n')
-	walk_to_object = input('Yes/no?')
+	walk_to_object = input('When you get down from the tree you see a something shiny a few metres away.\nWould you like to go over to the object?\nYes/no?\n')
 	if walk_to_object.lower() in ('yes', 'y'):
 		pick_up()
 	elif walk_to_object.lower() in ('no' or 'n'):
 		print('Oh no! That was your only chance to get the octopus. You died of sunstroke.')
 	elif walk_to_object.lower():
+		print('poo')
 		# owl_ask_gull()
 
 def tree_view():
@@ -95,7 +96,6 @@ def tree_view():
 	stay = "2"
 	activity_words = down_stay.lower()
 	if climb_down in activity_words:
-		print('When you get down from the tree you see a something shiny a few metres away.')
 		inspect_object()
 	elif stay in activity_words:
 		print('If you stay in the tree too long you will never get home!')
