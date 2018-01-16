@@ -1,6 +1,11 @@
 import random
 character = ['Wizzeling Wizard', 'Catastrophic Cat', 'Bobbeling Flightless Bumble Bee', 'Outrageous Ground Owl']
-stone = {'blue': 'freeze time for 1 hour' , 'red': '1 life', 'pink': 'food', 'green': 'speak to the trees'}
+stone = {'blue': 'freeze time for 1 hour' , 'red': 'get 1 life', 'pink': 'get food', 'green': 'speak to the trees'}
+blue_stone = 0
+red_stone = 0
+pink_stone = 0
+green_stone = 0
+
 
 def end():
 	print('THE END')
@@ -75,8 +80,26 @@ def stay_in_the_tree(stays):
 def pick_up():
 	stone_found = random.choice(list(stone.keys()))
 	stone_action = stone.get(stone_found)
-	print('You have found a ' + stone_found + ' magic stone! This stone gives you ' + stone_action + '.')
+	print('You have found a ' + stone_found + ' magic stone! This stone means you can ' + stone_action + '.')
+		if stone_found == blue: 
+			blue_stones_collected = blue_stone + 1
+			print(blue_stones_collected)
+		elif stone_found == red: 
+			red_stones_collected = red_stone + 1
+			print(red_stones_collected)
+		elif stone_found == pink: 
+			red_stones_collected = red_stone + 1
+			print(red_stones_collected)
+
+
+
+blue_stone = 0
+red_stone = 0
+pink_stone = 0
+green_stone = 0
+
 	# These could be randomly selected colours and each one could do something different. Need to have a number to collect them.
+stone = {'blue': 'freeze time for 1 hour' , 'red': 'get 1 life', 'pink': 'get food', 'green': 'speak to the trees'}
 
 def inspect_object():
 	walk_to_object = input('When you get down from the tree you see a something shiny a few metres away.\nWould you like to go over to the object?\nYes/no?\n')
