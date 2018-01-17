@@ -77,26 +77,30 @@ def stay_in_the_tree(stays):
 # 		owl_ask_gull()
 # print('You saw a large lake from up in the tree. Would you like to head for it or try to go around it?')
 
+
+
 def pick_up():
+	global blue_stone
+	global red_stone
+	global pink_stone
+	global green_stone
 	stone_found = random.choice(list(stone.keys()))
 	stone_action = stone.get(stone_found)
 	print('You have found a ' + stone_found + ' magic stone! This stone means you can ' + stone_action + '.')
-		if stone_found == blue: 
-			blue_stones_collected = blue_stone + 1
-			print(blue_stones_collected)
-		elif stone_found == red: 
-			red_stones_collected = red_stone + 1
-			print(red_stones_collected)
-		elif stone_found == pink: 
-			red_stones_collected = red_stone + 1
-			print(red_stones_collected)
+	if stone_found == 'blue': 
+		blue_stone = blue_stone + 1
+		print(blue_stone)
+	elif stone_found == 'red': 
+		red_stone = red_stone + 1
+		print(red_stone)
+	elif stone_found == 'pink': 
+		pink_stone = pink_stone + 1
+		print(pink_stone)
+	elif stone_found == 'green': 
+		green_stone = green_stone + 1
+		print(green_stone)
 
 
-
-blue_stone = 0
-red_stone = 0
-pink_stone = 0
-green_stone = 0
 
 	# These could be randomly selected colours and each one could do something different. Need to have a number to collect them.
 stone = {'blue': 'freeze time for 1 hour' , 'red': 'get 1 life', 'pink': 'get food', 'green': 'speak to the trees'}
