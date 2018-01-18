@@ -1,6 +1,6 @@
 import random
 character = ['Wizzeling Wizard', 'Catastrophic Cat', 'Bobbeling Flightless Bumble Bee', 'Outrageous Ground Owl']
-stone = {'blue': 'freeze time for 1 hour' , 'red': 'get 1 life', 'pink': 'get food', 'green': 'speak to the trees'}
+stone = {'blue': 'freeze time' , 'red': 'get 1 life', 'pink': 'get food', 'green': 'speak to the trees'}
 blue_stone = 0
 red_stone = 0
 pink_stone = 0
@@ -76,7 +76,17 @@ def stay_in_the_tree(stays):
 # 	elif ask_for_octopus.lower():
 # 		owl_ask_gull()
 # print('You saw a large lake from up in the tree. Would you like to head for it or try to go around it?')
-
+def wall_cave():
+	walk_wall_cave = input('Walk towards the giant wall or to the cave?\nWall/cave?\n')
+	if walk_wall_cave.lower() in ('wall'):
+		print('You have arrived at a wall.')
+		print('Next function')
+	elif walk_wall_cave.lower() in ('cave'):
+		print('You have arrived at the mouth of the cave.')
+		print('Next function')
+	elif walk_wall_cave.lower():
+		print('poo')
+		wall_cave()
 
 
 def pick_up():
@@ -89,21 +99,24 @@ def pick_up():
 	print('You have found a ' + stone_found + ' magic stone! This stone means you can ' + stone_action + '.')
 	if stone_found == 'blue': 
 		blue_stone = blue_stone + 1
-		print(blue_stone)
+		print('This is great! Just use the word \'blue\' and everything will freeze around you. Be wise when you use this.')
+		wall_cave()
 	elif stone_found == 'red': 
 		red_stone = red_stone + 1
 		print(red_stone)
+		print('This is great! Just use the word \'red\' if you found yourself on the wrong side of death and you will be revived. You will know when to use this!')
+		wall_cave()
 	elif stone_found == 'pink': 
 		pink_stone = pink_stone + 1
 		print(pink_stone)
+		print('This is great! Just use the word \'pink\' and food will be provided. Be wise when you use this.')
+		wall_cave()
 	elif stone_found == 'green': 
 		green_stone = green_stone + 1
 		print(green_stone)
+		print('This is great! Just use the word \'green\' and the trees will listen. Be careful though, some trees are more helpful than others.')
+		wall_cave()
 
-
-
-	# These could be randomly selected colours and each one could do something different. Need to have a number to collect them.
-stone = {'blue': 'freeze time for 1 hour' , 'red': 'get 1 life', 'pink': 'get food', 'green': 'speak to the trees'}
 
 def inspect_object():
 	walk_to_object = input('When you get down from the tree you see a something shiny a few metres away.\nWould you like to go over to the object?\nYes/no?\n')
@@ -164,7 +177,6 @@ def lost_woods():
 		start_again()
 	elif begin.lower():
 		start_again()
-
 
 
 def start():
