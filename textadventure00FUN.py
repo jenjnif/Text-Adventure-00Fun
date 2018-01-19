@@ -75,9 +75,11 @@ def stay_in_the_tree(stays):
 # 		end()
 # 	elif ask_for_octopus.lower():
 # 		owl_ask_gull()
-# print('You saw a large lake from up in the tree. Would you like to head for it or try to go around it?')
+
+
+
 def wall_cave():
-	walk_wall_cave = input('Walk towards the giant wall or to the cave?\nWall/cave?\n')
+	walk_wall_cave = input('Would you like to walk towards the giant wall or to the cave?\nWall/cave?\n')
 	if walk_wall_cave.lower() in ('wall'):
 		print('You have arrived at a wall.')
 		print('Next function')
@@ -85,7 +87,6 @@ def wall_cave():
 		print('You have arrived at the mouth of the cave.')
 		print('Next function')
 	elif walk_wall_cave.lower():
-		print('poo')
 		wall_cave()
 
 
@@ -99,23 +100,28 @@ def pick_up():
 	print('You have found a ' + stone_found + ' magic stone! This stone means you can ' + stone_action + '.')
 	if stone_found == 'blue': 
 		blue_stone = blue_stone + 1
-		print('This is great! Just use the word \'blue\' and everything will freeze around you. Be wise when you use this.')
+		print('Just use the word \'blue\' and everything will freeze around you. Be wise when you use this.')
 		wall_cave()
 	elif stone_found == 'red': 
 		red_stone = red_stone + 1
 		print(red_stone)
-		print('This is great! Just use the word \'red\' if you found yourself on the wrong side of death and you will be revived. You will know when to use this!')
+		print('Just use the word \'red\' if you found yourself on the wrong side of death and you will be revived. You will know when to use this!')
 		wall_cave()
 	elif stone_found == 'pink': 
 		pink_stone = pink_stone + 1
 		print(pink_stone)
-		print('This is great! Just use the word \'pink\' and food will be provided. Be wise when you use this.')
+		print('Just use the word \'pink\' and food will be provided. Be wise when you use this.')
 		wall_cave()
 	elif stone_found == 'green': 
 		green_stone = green_stone + 1
 		print(green_stone)
-		print('This is great! Just use the word \'green\' and the trees will listen. Be careful though, some trees are more helpful than others.')
+		print('Just use the word \'green\' and the trees will listen. Be careful though, some trees are more helpful than others.')
 		wall_cave()
+
+def stone_use(colour):
+	if input('blue'):
+		
+
 
 
 def inspect_object():
@@ -123,10 +129,10 @@ def inspect_object():
 	if walk_to_object.lower() in ('yes', 'y'):
 		pick_up()
 	elif walk_to_object.lower() in ('no' or 'n'):
-		print('Oh no! That was your only chance to get the octopus. You died of sunstroke.')
+		wall_cave()
 	elif walk_to_object.lower():
-		print('poo')
-		# owl_ask_gull()
+		print('I do not understand what you want to do.')
+		inspect_object()
 
 def tree_view():
 	down_stay = input('You can see your home over in the distance and the nice, safe, winding path you took to get you here ' +
