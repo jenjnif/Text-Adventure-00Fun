@@ -7,6 +7,7 @@ pink_stone = 0
 green_stone = 0
 
 
+
 def end():
 	print('THE END')
 	start_again()
@@ -77,7 +78,6 @@ def stay_in_the_tree(stays):
 # 		owl_ask_gull()
 
 
-
 def wall_cave():
 	walk_wall_cave = input('Would you like to walk towards the giant wall or to the cave?\nWall/cave?\n')
 	if walk_wall_cave.lower() in ('wall'):
@@ -120,8 +120,6 @@ def pick_up():
 
 def stone_use(colour):
 	if input('blue'):
-		
-
 
 
 def inspect_object():
