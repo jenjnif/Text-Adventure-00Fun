@@ -32,6 +32,7 @@ def process_input_for_school(user_input):
 		return None
 
 
+
 scenes = [{
 	"instructions": "You are in a woods",
 	"input_text": "Do you want to go right or left?",
