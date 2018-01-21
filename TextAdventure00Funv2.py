@@ -1,3 +1,15 @@
+import random
+character = ['Wizzeling Wizard', 'Catastrophic Cat', 'Bobbeling Flightless Bumble Bee', 'Outrageous Ground Owl']
+
+
+def process_input_for_name(user_input):
+	character_generated = random.choice(character)
+	if character_generated == 'Outrageous Owl':
+		indefinite_article = "an"
+	else:
+		indefinite_article = "a"
+	print('Welcome ' + user_input + '. You are ' + indefinite_article + " " + character_generated)
+	return 1
 
 def process_input_for_woods(user_input):
 	if user_input.lower() == "left":
@@ -31,10 +43,12 @@ def process_input_for_school(user_input):
 		print("Invalid input")
 		return None
 
-
-
 scenes = [{
-	"instructions": "You are in a woods",
+	"instructions": "Welcome to your adventure.",
+	"input_text": "Please tell me your name.",
+	"process": process_input_for_name
+},{
+	"instructions": "You are the woods",
 	"input_text": "Do you want to go right or left?",
 	"process": process_input_for_woods
 },{
@@ -45,8 +59,9 @@ scenes = [{
 	"instructions": "You are in a school",
 	"input_text": "Do you want to leave?",
 	"process": process_input_for_school
-
 }]
+
+
 
 def play_game():
 	current_scene_index = 0
