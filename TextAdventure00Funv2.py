@@ -1,6 +1,11 @@
 import random
 character = ['Wizzeling Wizard', 'Catastrophic Cat', 'Bobbeling Flightless Bumble Bee', 'Outrageous Ground Owl']
 
+stone = {'blue': 'freeze time' , 'red': 'get 1 life', 'pink': 'get food', 'green': 'speak to the trees'}
+blue_stone = 0
+red_stone = 0
+pink_stone = 0
+green_stone = 0
 
 def process_input_for_name(user_input):
 	character_generated = random.choice(character)
@@ -33,37 +38,54 @@ def process_input_for_tree_view(user_input):
 		return None
 
 def process_input_for_inspect(user_input):
-	if user_input.lower() == "yes":
-		print("GAME OVER... stay in school kids")
-		exit()
-	elif user_input.lower() == "no":
+	if user_input.lower() in ("yes", "y"):
+		process_input_for_pickup()
+	elif user_input.lower() in ("no", "n"):
 		print("You win at life")
 		exit()
 	else:
 		print("Invalid input")
 		return None
 
-def process_input_for_pickup(user_input):
-	if user_input.lower() == "yes":
+def process_input_for_pickup():
+	global blue_stone
+	global red_stone
+	global pink_stone
+	global green_stone
+	stone_found = random.choice(list(stone.keys()))
+	stone_action = stone.get(stone_found)
+	print('You have found a ' + stone_found + ' magic stone! This stone means you can ' + stone_action + '.')
+	if stone_found == 'blue':
+		blue_stone = blue_stone + 1
+		print('Just use the word \'blue\' and everything will freeze around you. Be wise when you use this.')
+		# wall_cave()
+	elif stone_found == 'red':
+		red_stone = red_stone + 1
+		print(red_stone)
+		print('Just use the word \'red\' if you found yourself on the wrong side of death and you will be revived. You will know when to use this!')
+		# wall_cave()
+	elif stone_found == 'pink':
+		pink_stone = pink_stone + 1
+		print(pink_stone)
+		print('Just use the word \'pink\' and food will be provided. Be wise when you use this.')
+		# wall_cave()
+	elif stone_found == 'green':
+		green_stone = green_stone + 1
+		print(green_stone)
+		print('Just use the word \'green\' and the trees will listen. Be careful though, some trees are more helpful than others.')
+		# wall_cave()
+
+def process_input_for_gameover(user_input):
+	if user_input.lower() in ("yes", "y"):
 		print("GAME OVER... stay in school kids")
 		exit()
-	elif user_input.lower() == "no":
+	elif user_input.lower() in ("no", "n"):
 		print("You win at life")
 		exit()
 	else:
 		print("Invalid input")
 		return None
 
-def process_input_for_inspect(user_input):
-	if user_input.lower() == "yes":
-		print("GAME OVER... stay in school kids")
-		exit()
-	elif user_input.lower() == "no":
-		print("You win at life")
-		exit()
-	else:
-		print("Invalid input")
-		return None
 
 scenes = [{
 	"instructions": "Welcome to your adventure.",
@@ -83,10 +105,6 @@ scenes = [{
 	"instructions": "When you get down from the tree you see a something shiny a few metres away.",
 	"input_text": "Would you like to go over to the object? Yes/no?",
 	"process": process_input_for_inspect
-},{
-	"instructions": "When you get down from the tree you see a something shiny a few metres away.",
-	"input_text": "Would you like to go over to the object? Yes/no?",
-	"process": process_input_for_pickup
 }]
 
 
