@@ -58,22 +58,32 @@ def process_input_for_pickup():
 	if stone_found == 'blue':
 		blue_stone = blue_stone + 1
 		print('Just use the word \'blue\' and everything will freeze around you. Be wise when you use this.')
-		# wall_cave()
+		return 4
 	elif stone_found == 'red':
 		red_stone = red_stone + 1
 		print(red_stone)
 		print('Just use the word \'red\' if you found yourself on the wrong side of death and you will be revived. You will know when to use this!')
-		# wall_cave()
+		return 4
 	elif stone_found == 'pink':
 		pink_stone = pink_stone + 1
 		print(pink_stone)
 		print('Just use the word \'pink\' and food will be provided. Be wise when you use this.')
-		# wall_cave()
+		return 4
 	elif stone_found == 'green':
 		green_stone = green_stone + 1
 		print(green_stone)
 		print('Just use the word \'green\' and the trees will listen. Be careful though, some trees are more helpful than others.')
-		# wall_cave()
+		return 4
+
+def process_input_for_wall_cave(user_input):
+	if user_input.lower() == "wall"):
+		print('You have arrived at a wall.')
+	elif user_input.lower() == "cave":
+		print("You have arrived at the mouth of the cave.")
+		exit()
+	else:
+		print("Invalid input")
+		return None
 
 def process_input_for_gameover(user_input):
 	if user_input.lower() in ("yes", "y"):
@@ -105,6 +115,10 @@ scenes = [{
 	"instructions": "When you get down from the tree you see a something shiny a few metres away.",
 	"input_text": "Would you like to go over to the object? Yes/no?",
 	"process": process_input_for_inspect
+},{
+	"instructions": "From here you can go one of two ways.",
+	"input_text": "Would you like to walk towards the giant wall or to the cave? Wall/cave?",
+	"process": process_input_for_wall_cave
 }]
 
 
