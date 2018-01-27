@@ -57,26 +57,27 @@ def process_input_for_pickup():
 	print('You have found a ' + stone_found + ' magic stone! This stone means you can ' + stone_action + '.')
 	if stone_found == 'blue':
 		blue_stone = blue_stone + 1
+		print(stone_found + ' = ' + str(blue_stone))
 		print('Just use the word \'blue\' and everything will freeze around you. Be wise when you use this.')
 		return 4
 	elif stone_found == 'red':
 		red_stone = red_stone + 1
-		print(red_stone)
+		print(stone_found + " = " + str(red_stone))
 		print('Just use the word \'red\' if you found yourself on the wrong side of death and you will be revived. You will know when to use this!')
 		return 4
 	elif stone_found == 'pink':
 		pink_stone = pink_stone + 1
-		print(pink_stone)
+		print(stone_found + " = " + str(pink_stone))
 		print('Just use the word \'pink\' and food will be provided. Be wise when you use this.')
 		return 4
 	elif stone_found == 'green':
 		green_stone = green_stone + 1
-		print(green_stone)
+		print(stone_found + " = " + str(green_stone))
 		print('Just use the word \'green\' and the trees will listen. Be careful though, some trees are more helpful than others.')
 		return 4
 
 def process_input_for_wall_cave(user_input):
-	if user_input.lower() == "wall"):
+	if user_input.lower() == "wall":
 		print('You have arrived at a wall.')
 	elif user_input.lower() == "cave":
 		print("You have arrived at the mouth of the cave.")
