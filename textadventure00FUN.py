@@ -157,7 +157,7 @@ def tree_view():
 
 def walk_or_climb():
 	climb_walk = input("There are many magic stones in the forest. " +
-		"These could be helpful to you if you want to get home quickly but be careful how you use them.\n" +
+		"These could be helpful to you if you want to get home quickly but be careful how you use them." +
 		" You are surrounded by trees, perhaps you could climb up to get a better view? Type c to climb or w to keep on walking.\n")
 	climb = "c"
 	walk = "w"
